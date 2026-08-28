@@ -9,7 +9,7 @@ require_once("lang.php");
 /********************************************************/
 /* LANGUAGE SWITCH										*/
 /********************************************************/
-if ($_GET[lang]) header("Location: home.php");
+if ($_GET['lang']) header("Location: home.php");
 
 /********************************************************/
 /* PREPARE TPL-OBJECT					*/
