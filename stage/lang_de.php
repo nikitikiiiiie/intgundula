@@ -24,6 +24,7 @@ Kantonsschule Heerbrugg;
 Impossible Project Wien;
 <strong>«Wider die fiese Selbermach-Suggestion»</strong>, Entwicklung einer Workshop-Reihe für
 Jugendliche, zur Förderung zeitgenössischer Kunstformen und Medienkompetenz im Südkultur-Raum";
+$language['home_pix1'] = "";
 
 
 #:::::::::::::::::::::::::::::::::::::::::::

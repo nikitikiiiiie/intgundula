@@ -15,6 +15,7 @@ $language['date_update'] = "30.05.2007";
 
 $language['home_title'] = "<br>Interfacialist";
 $language['home_txt1'] = "<span class='fett'>int.gundula implements applied and artistic designs in new media.</span>";
+$language['home_pix1'] = "";
 
 
 #:::::::::::::::::::::::::::::::::::::::::::
@@ -78,4 +79,41 @@ $language['superalgo_txt1'] = "Interaktive Schaltkasteninstallation, Diplomarbei
 <img src='../img/pfeil_re.gif' width='10' height='10' border='0'><a class='txt' href='http://www.mamiichwillauchsuperalgorithmen.com' target='_blank'>www.mamiichwillauchsuperalgorithmen.com</a>";
 $language['superalgo_pix1'] = "<br><img src='../img/superalgo1.jpg' width='296' height='157' border='0'>";
 
+#:::::::::::::::::::::::::::::::::::::::::::
+#  Not yet translated to English - placeholders only, to avoid
+#  "undefined array key" warnings. Content mirrors lang_de.php's
+#  mels, zebra, mama, king, werdenberg, vilnius, vampires, simulant sections.
+#:::::::::::::::::::::::::::::::::::::::::::
+
+$language['mels_title'] = "";
+$language['mels_txt1'] = "";
+$language['mels_pix1'] = "";
+
+$language['zebra_title'] = "";
+$language['zebra_txt1'] = "";
+$language['zebra_pix1'] = "";
+
+$language['mama_title'] = "";
+$language['mama_txt1'] = "";
+$language['mama_pix1'] = "";
+
+$language['king_title'] = "";
+$language['king_txt1'] = "";
+$language['king_pix1'] = "";
+
+$language['werdenberg_title'] = "";
+$language['werdenberg_txt1'] = "";
+$language['werdenberg_pix1'] = "";
+
+$language['vilnius_title'] = "";
+$language['vilnius_txt1'] = "";
+$language['vilnius_pix1'] = "";
+
+$language['vampires_title'] = "";
+$language['vampires_txt1'] = "";
+$language['vampires_pix1'] = "";
+
+$language['simulant_title'] = "";
+$language['simulant_txt1'] = "";
+$language['simulant_pix1'] = "";
 ?>
