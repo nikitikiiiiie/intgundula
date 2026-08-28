@@ -1,0 +1,13 @@
+---
+import Site from "../../layouts/Site.astro";
+import { LANGS, getEntry } from "../../data/projects";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const entry = getEntry(lang, "home");
+---
+
+<Site lang={lang} slug="home" entry={entry} />

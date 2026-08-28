@@ -1,0 +1,163 @@
+---
+import "../styles/global.css";
+import {
+  PROJECTS,
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  urlFor,
+  type Lang,
+  type Entry,
+} from "../data/projects";
+
+interface Props {
+  lang: Lang;
+  slug: string;
+  entry: Entry;
+}
+
+const { lang, slug, entry } = Astro.props;
+
+const activeLabel = PROJECTS.find((p) => p.slug === slug)?.label ?? "";
+
+const plainTitle = entry.title.replace(/<[^>]+>/g, "").trim();
+const headTitle = `★ ★ ${plainTitle ? plainTitle + " – " : ""}int.gundula ★ ★`;
+const otherLang: Lang = lang === "de" ? "en" : "de";
+const buildDate = new Date().toLocaleDateString("de-CH", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{headTitle}</title>
+    <meta name="description" content={SITE_DESCRIPTION[lang]} />
+    <meta name="author" content="Niki Schawalder, int.gundula.ch" />
+    <meta property="og:title" content={SITE_TITLE[lang]} />
+    <meta property="og:description" content={SITE_DESCRIPTION[lang]} />
+    <link rel="canonical" href={new URL(urlFor(lang, slug), Astro.site)} />
+    <link
+      rel="alternate"
+      hreflang={otherLang}
+      href={new URL(urlFor(otherLang, slug), Astro.site)}
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <div class="stage">
+      <main class="content">
+        <h1 class="titel16" set:html={entry.title} />
+        {entry.pix && <div class="pix lauftext11" set:html={entry.pix} />}
+        <div class="txt lauftext11" set:html={entry.txt} />
+      </main>
+
+      <nav class="navi-applied" aria-label="Biografie">
+        <ul>
+          <li>
+            <a
+              href="/pdf/int_gundula_cv.pdf"
+              target="_blank"
+              aria-label={lang === "de" ? "Biografie als PDF" : "Biography as PDF"}
+            >
+              <span class="label" aria-hidden="true">
+                {lang === "de" ? "Biografie als PDF" : "Biography as PDF"}
+              </span>
+              <span class="sq"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="navi-artistic" aria-label="Projekte">
+        <ul>
+          {
+            PROJECTS.map((p) => (
+              <li>
+                <a
+                  href={urlFor(lang, p.slug)}
+                  class={p.slug === slug ? "active" : undefined}
+                  aria-current={p.slug === slug ? "page" : undefined}
+                  aria-label={p.label}
+                  style={`--c: ${p.color}`}
+                >
+                  <span class="sq" />
+                  <span class="label" aria-hidden="true">{p.label}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <!-- Mobile: rotes Label des aktiven bzw. angetippten Projekts -->
+        <div class="mnav-label" aria-hidden="true">{activeLabel}</div>
+      </nav>
+
+      <footer class="footer">
+        {
+          lang === "de" ? (
+            <span class="lang-current">deutsch</span>
+          ) : (
+            <a class="copy" href={urlFor("de", slug)}>
+              deutsch
+            </a>
+          )
+        }
+        {" | "}
+        {
+          lang === "en" ? (
+            <span class="lang-current">english</span>
+          ) : (
+            <a class="copy" href={urlFor("en", slug)}>
+              english
+            </a>
+          )
+        }
+        <br />
+        <br />
+        &copy; 2006&ndash;2013, int.gundula<br />
+        Last update: {buildDate}<br />
+        <a class="copy" href="mailto:gutentag&#64;int.gundula.ch">
+          Mail me in case of questions
+        </a>
+      </footer>
+    </div>
+
+    <script is:inline>
+      // Mobile Zeitstrahl: Hover gibt es auf Touch nicht. Erster Tap auf ein
+      // Quadrat zeigt das rote Label (Peek), zweiter Tap navigiert.
+      (function () {
+        var bar = document.querySelector(".mnav-label");
+        var links = Array.prototype.slice.call(
+          document.querySelectorAll(".navi-artistic a"),
+        );
+        var activeLabel = bar ? bar.textContent : "";
+        links.forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            var mobile = window.matchMedia("(max-width: 999px)").matches;
+            if (!mobile || a.classList.contains("active")) return;
+            if (!a.classList.contains("peek")) {
+              e.preventDefault();
+              links.forEach(function (l) {
+                l.classList.remove("peek");
+              });
+              a.classList.add("peek");
+              if (bar) bar.textContent = a.getAttribute("aria-label");
+            }
+          });
+        });
+        // Tap daneben: Peek aufheben, aktives Label wieder anzeigen
+        document.addEventListener("click", function (e) {
+          if (e.target.closest && e.target.closest(".navi-artistic")) return;
+          links.forEach(function (l) {
+            l.classList.remove("peek");
+          });
+          if (bar) bar.textContent = activeLabel;
+        });
+      })();
+    </script>
+  </body>
+</html>

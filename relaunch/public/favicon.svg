@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Zeitstrahl-Motiv: gestapelte Farbquadrate der Projektnavigation -->
+  <rect x="39" y="2"  width="22" height="22" fill="#33FF00"/>
+  <rect x="39" y="27" width="22" height="22" fill="#F77F1E"/>
+  <rect x="39" y="52" width="22" height="22" fill="#00D7BB"/>
+  <rect x="39" y="77" width="22" height="22" fill="#CC0000"/>
+</svg>

@@ -1,0 +1,17 @@
+---
+import Site from "../../../layouts/Site.astro";
+import { LANGS, PROJECTS, getEntry } from "../../../data/projects";
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    PROJECTS.filter((p) => p.slug !== "home").map((p) => ({
+      params: { lang, slug: p.slug },
+    })),
+  );
+}
+
+const { lang, slug } = Astro.params;
+const entry = getEntry(lang, slug);
+---
+
+<Site lang={lang} slug={slug} entry={entry} />

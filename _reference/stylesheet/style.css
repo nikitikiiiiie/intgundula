@@ -1,0 +1,36 @@
+a.txt:link { color: #333300; text-decoration: underline; }
+a.txt:visited { color: #333300; text-decoration: underline; }
+a.txt:active { background-color: #CC0000; color: #FFFFFF; text-decoration: none; }
+a.txt:hover { background-color: #CC0000; color: #FFFFFF; text-decoration: underline; }
+
+a.copy:link { color: #333300; text-decoration: none; }
+a.copy:visited { color: #333300; text-decoration: none; }
+a.copy:active { background-color: #CC0000; color: #FFFFFF; text-decoration: none; }
+a.copy:hover { background-color: #CC0000; color: #FFFFFF; text-decoration: none; }
+
+body {
+	margin-top:0px;
+	margin-left:0px;
+	background-color: #FFFFFF;
+	background-attachment: scroll;
+	background-image: url(../img/trompetenflechten.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+.high { color:#A1FFAC; }
+
+.titel16 { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 12px; font-weight:bold; color: #0B341C }
+.fett { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 24px; font-weight:bold; line-height: 23px; color: #0B341C }
+.lauftext9 { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 9px; color: #333300 }
+.lauftext11 { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; line-height: 14px; color: #333300 }
+.lauftext11i { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; line-height: 14px; color: #333300; font-style:italic }
+.lauftext12 { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 12px; line-height: 15px; color: #333300 }
+.lauftext13 { font-family: Verdana,Helvetica, Arial, sans-serif; font-size: 13px; line-height: 16px; color: #333300 }
+
+.newsdatum { font-family: Helvetica, Arial, sans-serif; font-size: 9px; color: #A1FFAC }
+.newsdatum_i { font-family: Helvetica, Arial, sans-serif; font-size: 9px; color: #A1FFAC; font-style:italic }
+
+.searchField { border:1px dashed #CFCFCF; background-color:#000000; color:#CFCFCF; font-family: Helvetica, Arial, sans-serif; font-size: 11px; width:240px; text-align: right}
+.txtField { border:1px dashed #CFCFCF; background-color:#000000; color:#CFCFCF; font-family: Helvetica, Arial, sans-serif; font-size: 11px; width:384px; }
+.txtFieldNews { border:1px dashed #CFCFCF; background-color:#333333; color:#CFCFCF; font-family: Helvetica, Arial, sans-serif; font-size: 11px; width:384px; }

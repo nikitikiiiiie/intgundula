@@ -1,0 +1,23 @@
+AddDefaultCharset utf-8
+
+RewriteEngine On
+
+# Alte PHP-URLs (2007) auf neue statische Routen umleiten
+RewriteCond %{QUERY_STRING} (?:^|&)artistic=home(?:&|$)
+RewriteRule ^(?:stage/)?content\.php$ /de/? [R=301,L]
+
+RewriteCond %{QUERY_STRING} (?:^|&)artistic=([a-z_0-9]+)
+RewriteRule ^(?:stage/)?content\.php$ /de/%1/? [R=301,L]
+
+RewriteRule ^index\.php$ /de/? [R=301,L]
+
+# Startseite -> deutsche Version
+RedirectMatch 301 ^/$ /de/
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/gif "access plus 30 days"
+  ExpiresByType application/pdf "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+</IfModule>
